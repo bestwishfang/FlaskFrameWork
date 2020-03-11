@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EmptyTest</title>
+</head>
+<body>
+
+<script src="/static/vendor/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            url: '/api/leave/',
+            type: 'get',
+            data: '',
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+
+    })
+</script>
+
+</body>
+</html>

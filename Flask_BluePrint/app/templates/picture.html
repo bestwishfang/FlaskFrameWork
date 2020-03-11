@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PictureDemo</title>
+</head>
+<body>
+
+    <div>
+        <img src="/static/{{ p.pic_path }}" alt="">
+        <form action="" method="post" enctype="multipart/form-data">
+{#            <input type="hidden" id="csrf_token" name="csrf_token" value="{{ csrf_token() }}">#}
+            <input type="file" name="photo" value="">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+
+</body>
+</html>

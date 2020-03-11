@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data's Rode</title>
+    <script src="/static/jquery-3.4.1.min.js"></script>
+    <script src="/static/echarts.min.js"></script>
+</head>
+<body>
+
+<div id="chart" style="width: 800px;height: 600px;margin: auto;"></div>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            url: "/one/api/",
+            type: "GET",
+            data: "",
+            success: function (data) {
+                console.log(data['data']);
+                var newChart = echarts.init(document.getElementById("chart"));
+                newChart.setOption({
+                    title: {
+                        text: "学院学生人数统计",
+                        subtext: "数据来自阿里天池",
+                        x: "center",
+                    },
+                    series : [
+                        {
+                            name: '学生人数',
+                            type: 'pie',
+                            radius: '55%',
+                            data: data['data'],
+                        }
+                    ]
+                });
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    });
+
+
+</script>
+</body>
+</html>
